@@ -1,0 +1,166 @@
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+    width: 60%;
+    height: 4px;
+    background: var(--pastel-pink);
+    border-radius: 2px;
+}
+
+.galaxyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.planetCard {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+}
+
+.planetCard:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.iconWrapper {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.contentWrapper {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.playBadge {
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer {
+    margin-top: 5rem;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Accessible reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .icon {
+        animation: none;
+    }
+
+    .planetCard {
+        transition: none;
+    }
+
+    .planetCard:hover {
+        transform: none;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .galaxyGrid {
+        gap: 1.5rem;
+    }
+}
+
+.specialCardContainer {
+    width: 100%;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+}
+
+.assessmentCard {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid var(--accent-gold);
+}
+
+.assessmentCard:hover {
+    box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+}

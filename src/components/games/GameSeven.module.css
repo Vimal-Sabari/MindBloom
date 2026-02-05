@@ -1,0 +1,90 @@
+.gameContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at bottom, #2c3e50 0%, #000000 100%);
+    cursor: crosshair;
+}
+
+.hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #f1c40f;
+    font-size: 1.5rem;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.bug {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s;
+}
+
+.firefly {
+    background: rgba(241, 196, 15, 0.2);
+    box-shadow: 0 0 20px #f1c40f, inset 0 0 10px #f1c40f;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.redBug {
+    background: rgba(231, 76, 60, 0.2);
+    box-shadow: 0 0 10px #e74c3c;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.bug:active {
+    transform: scale(0.9);
+}
+
+/* Star background */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 0.8;
+    }
+}
+
+.catchAnim {
+    position: absolute;
+    pointer-events: none;
+    font-size: 2rem;
+    color: #f1c40f;
+    animation: floatUp 1s forwards;
+    z-index: 50;
+    font-weight: bold;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-50px) scale(1.5);
+        opacity: 0;
+    }
+}

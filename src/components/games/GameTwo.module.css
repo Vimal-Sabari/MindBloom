@@ -1,0 +1,151 @@
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--pastel-green);
+    text-shadow: 2px 2px 0 var(--bg-deep-space);
+    margin-bottom: 2rem;
+}
+
+.trainTrack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.train {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    transition: transform 1s ease-in-out;
+}
+
+.train.driveIn {
+    animation: driveIn 1s ease-out forwards;
+}
+
+.train.driveOut {
+    animation: driveOut 1s ease-in forwards;
+}
+
+.car {
+    width: 100px;
+    height: 80px;
+    background-color: var(--accent-gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 3px solid #d4a373;
+}
+
+.car::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    border-radius: 50%;
+    box-shadow: 60px 0 0 #333;
+}
+
+.engine {
+    background-color: var(--accent-action);
+    border-radius: 20px 10px 10px 10px;
+}
+
+.engine::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    width: 15px;
+    height: 30px;
+    background-color: #333;
+}
+
+.content {
+    font-size: 3rem;
+    user-select: none;
+}
+
+.emptySlot {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 3px dashed var(--text-secondary);
+}
+
+.optionsPool {
+    display: flex;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+}
+
+.draggable {
+    font-size: 4rem;
+    cursor: grab;
+    transition: transform 0.2s;
+    padding: 1rem;
+    background: var(--bg-nebula);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.draggable:hover {
+    transform: scale(1.1);
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+@keyframes driveIn {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes driveOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100vw);
+    }
+}
+
+@media (max-width: 600px) {
+    .car {
+        width: 70px;
+        height: 60px;
+    }
+
+    .content {
+        font-size: 2rem;
+    }
+
+    .draggable {
+        font-size: 3rem;
+    }
+}
