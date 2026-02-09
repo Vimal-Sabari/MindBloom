@@ -10,49 +10,49 @@ const GAMES = [
         id: 1,
         title: 'Cosmic Memory',
         icon: '🪐',
-        color: 'var(--pastel-blue)',
+        color: 'var(--accent-blue)',
         desc: 'Find all the matching space friends!'
     },
     {
         id: 2,
         title: 'Dino Patterns',
         icon: '🦕',
-        color: 'var(--pastel-green)',
+        color: 'var(--accent-green)',
         desc: 'Help the dinos finish their pattern!'
     },
     {
         id: 3,
         title: 'Ocean Sorter',
         icon: '🐙',
-        color: 'var(--pastel-pink)',
+        color: 'var(--accent-pink)',
         desc: 'Sort the ocean treasures by color!'
     },
     {
         id: 4,
         title: 'Shape Safari',
         icon: '🦒',
-        color: 'var(--pastel-yellow)',
+        color: 'var(--accent-gold)',
         desc: 'Build amazing animal shapes!'
     },
     {
         id: 5,
         title: 'Emotion Garden',
         icon: '🌻',
-        color: 'var(--pastel-green)',
+        color: 'var(--accent-green)',
         desc: 'Grow happy flowers in our garden!'
     },
     {
         id: 6,
         title: 'Robot Directions',
         icon: '🤖',
-        color: 'var(--pastel-purple)',
+        color: 'var(--accent-purple)',
         desc: 'Give Geo instructions to find the ball!'
     },
     {
         id: 7,
         title: 'Focus Fireflies',
         icon: '✨',
-        color: 'var(--pastel-blue)',
+        color: 'var(--accent-blue)',
         desc: 'Catch the glowing fireflies!'
     },
 ];

@@ -1,56 +1,66 @@
 .kids-info-wrapper {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto 3rem;
+    max-width: 700px;
+    margin: 0 auto 4rem;
     padding: 0 1rem;
 }
 
 .fact-card {
     display: flex;
     align-items: center;
-    padding: 1.5rem 2rem;
-    gap: 1.5rem;
+    padding: 2rem;
+    gap: 2rem;
     position: relative;
     overflow: hidden;
-    border-left: 6px solid var(--accent-gold);
+    border-left: 4px solid var(--accent-gold);
+    background: rgba(30, 41, 59, 0.6) !important;
+    /* Force override glass-panel for slightly darker bg */
+}
+
+/* Glass panel glow effect on hover */
+.fact-card:hover {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.15);
 }
 
 .fact-icon-container {
-    background: rgba(255, 255, 255, 0.1);
-    width: 70px;
-    height: 70px;
+    background: radial-gradient(circle at center, rgba(251, 191, 36, 0.2), transparent);
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
 .fact-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.4));
 }
 
 .fact-content {
     text-align: left;
+    flex: 1;
 }
 
 .fact-label {
     display: block;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--accent-gold);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
 }
 
 .fact-text {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--text-primary);
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.5;
     font-weight: 500;
 }
 
@@ -58,12 +68,12 @@
 @keyframes fadeInSlide {
     from {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateY(10px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
@@ -71,7 +81,7 @@
     animation: fadeInSlide 0.5s ease-out;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .fact-card {
         flex-direction: column;
         text-align: center;
@@ -80,5 +90,10 @@
 
     .fact-content {
         text-align: center;
+    }
+
+    .fact-card {
+        border-left: none;
+        border-top: 4px solid var(--accent-gold);
     }
 }
