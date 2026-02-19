@@ -34,6 +34,7 @@
     font-family: var(--font-heading);
     font-size: 2.8rem;
     background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 3rem;
@@ -130,6 +131,15 @@
     font-size: 1.2rem;
     margin: 0 auto;
     border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.profilePhoto {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .link {

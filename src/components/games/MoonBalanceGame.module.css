@@ -1,0 +1,349 @@
+.container {
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at bottom, #2e1065, #0f172a);
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Stars Effect (Simple CSS) */
+.container::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+        10vw 10vh 0 white,
+        20vw 80vh 1px #fbbf24,
+        80vw 20vh 1px #c084fc,
+        60vw 60vh 0 white;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    z-index: 10;
+}
+
+.backButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.scoreBoard {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid var(--accent-gold);
+}
+
+.instruction {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--accent-blue);
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    min-height: 3rem;
+    z-index: 10;
+}
+
+.gameArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Balance Scale Styles */
+.balanceContainer {
+    position: relative;
+    width: 600px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.balanceBase {
+    width: 20px;
+    height: 150px;
+    background: linear-gradient(to right, #475569, #94a3b8, #475569);
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.balanceBase::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 20px;
+    background: #334155;
+    border-radius: 10px 10px 0 0;
+}
+
+.balanceBeam {
+    width: 500px;
+    height: 10px;
+    background: linear-gradient(to top, #c084fc, #e879f9);
+    border-radius: 5px;
+    position: relative;
+    top: 50px;
+    /* Align with pivot */
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Bounce effect */
+    box-shadow: 0 0 15px var(--accent-purple);
+    z-index: 5;
+}
+
+/* Pivot Point */
+.balanceBeam::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* Balance States */
+.balanced {
+    transform: rotate(0deg);
+}
+
+.left-heavy {
+    transform: rotate(-15deg);
+}
+
+.right-heavy {
+    transform: rotate(15deg);
+}
+
+.panContainerLeft,
+.panContainerRight {
+    position: absolute;
+    top: 5px;
+    /* Attach to beam */
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Counter-rotate pans so they stay upright */
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.panContainerLeft {
+    left: 0;
+}
+
+.panContainerRight {
+    right: 0;
+}
+
+/* Keep pans upright when beam rotates */
+.left-heavy .panContainerLeft,
+.left-heavy .panContainerRight,
+.right-heavy .panContainerLeft,
+.right-heavy .panContainerRight {
+    /* Slightly simplified physics/visual hack: just rotate opposite to beam */
+    transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.left-heavy .panContainerLeft {
+    transform: rotate(15deg);
+}
+
+.left-heavy .panContainerRight {
+    transform: rotate(15deg);
+}
+
+.right-heavy .panContainerLeft {
+    transform: rotate(-15deg);
+}
+
+.right-heavy .panContainerRight {
+    transform: rotate(-15deg);
+}
+
+
+.string {
+    width: 2px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.string::before,
+.string::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+}
+
+.string::before {
+    transform: rotate(15deg);
+    transform-origin: top;
+}
+
+.string::after {
+    transform: rotate(-15deg);
+    transform-origin: top;
+}
+
+
+.pan {
+    width: 140px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    /* Half circle pan */
+    border-radius: 0 0 70px 70px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #fef3c7, #d97706);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    /* Sit in pan */
+    box-shadow: inset -10px -10px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(251, 191, 36, 0.3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    justify-items: center;
+    padding: 10px;
+}
+
+.crystal {
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 5px cyan);
+    animation: pulse-soft 2s infinite;
+}
+
+.countLabel {
+    position: absolute;
+    bottom: -40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+}
+
+.controlBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.controlBtn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 30px rgba(74, 222, 128, 0.2);
+}
+
+.controlBtn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.btnIcon {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-green);
+}
+
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .balanceContainer {
+        width: 100%;
+        transform: scale(0.8);
+    }
+
+    .beam {
+        width: 300px;
+    }
+
+    .controls {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .controlBtn {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}

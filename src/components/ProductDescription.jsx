@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './ProductDescription.module.css';
+import userPhoto from '../assets/Vimal Sabari S B.jpg';
 
 const ProductDescription = () => {
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ const ProductDescription = () => {
                             <tbody>
                                 <tr>
                                     <td className={styles.photoCell}>
-                                        <div className={styles.placeholderPhoto}>👤</div>
+                                        <img src={userPhoto} alt="Vimal Sabari S B" className={styles.profilePhoto} />
                                     </td>
                                     <td>Vimal Sabari S B</td>
                                     <td>CB.SC.U4CSE23758</td>
@@ -72,7 +73,7 @@ const ProductDescription = () => {
                     </div>
                     <div className={styles.detailItem}>
                         <span className={styles.label}>Course Name:</span>
-                        <span className={styles.value}>Open Lab</span>
+                        <span className={styles.value}>Full Stack Frameworks</span>
                     </div>
                 </section>
 
